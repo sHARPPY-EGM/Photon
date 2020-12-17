@@ -1,0 +1,88 @@
+AddCSLuaFile()
+
+local VehicleName = "Audi R8 Polizei"
+
+local EMV = {}
+
+EMV.Siren = "hella_rtk_7_de"
+EMV.Skin = 12
+EMV.Color = Color(255,255,255)
+
+EMV.BodyGroups = {
+	{ 0, 0 }, -- hood_dmg
+	{ 1, 0 }, -- bumperf_dmg
+	{ 2, 0 }, -- bumperr_dmg
+	{ 3, 0 }, -- Body
+	{ 4, 0 }, -- wing
+	{ 5, 0 }, -- cover
+	{ 6, 0 }, -- wheels
+	{ 7, 0 }, -- rt
+	{ 8, 0 }, -- cockpit
+}
+
+EMV.Auto = {
+	{
+		ID = "Haensch DBS 2000 Feldjaeger",
+		Scale = 1,
+		Pos = Vector( 0, -4.4, 57.8 ),
+		Ang = Angle( 0, 180, 0 )
+    },
+    {
+        ID = "Whelen Ion",
+		Scale = 0.7,
+		Pos = Vector( -30, 94.2, 19 ),
+        Ang = Angle( 3, 40, 4 ), 
+        Color1 = "BLUE"
+    },
+    {
+        ID = "Whelen Ion",
+		Scale = 0.7,
+		Pos = Vector( 30, 94.2, 19 ),
+        Ang = Angle( -3, -40, 4 ), 
+        Color1 = "BLUE"
+    },
+    {
+        ID = "Whelen Ion",
+		Scale = 0.7,
+		Pos = Vector( 31.2, -96.45, 27.90 ),
+        Ang = Angle( 0, 26, 169 ), 
+        Color1 = "BLUE"
+    },
+    {
+        ID = "Whelen Ion",
+		Scale = 0.7,
+		Pos = Vector( -31.2, -96.45, 27.90 ),
+        Ang = Angle( 0, -26, 169 ), 
+        Color1 = "BLUE"
+    }
+}
+
+
+EMV.Sequences = {
+	Sequences = {
+		{ Name = "CODE 1", Stage = "M1", Components = {}, Disconnect = {} },
+		{ Name = "CODE 2", Stage = "M2", Components = {}, Disconnect = {} },
+		{ Name = "CODE 3", Stage = "M3", Components = {}, Disconnect = {} }
+	},
+	Traffic = {
+		{ Name = "LEFT", Stage = "L", Components = {}, Disconnect = {} },
+		{ Name = "DIVERGE", Stage = "D", Components = {}, Disconnect = {} },
+		{ Name = "RIGHT", Stage = "R", Components = {}, Disconnect = {} }
+	}
+}
+
+local V = {
+	Name = VehicleName,
+	Class = "prop_vehicle_jeep",
+	Category = "EGM Photon",
+	Author = "sHARPPY- adriaNN",
+	Model = "models/tdmcars/audir8.mdl",
+	KeyValues = { vehiclescript = "scripts/vehicles/TDMCars/audir8.txt" },
+	IsEMV = true,
+	EMV = EMV,
+	HasPhoton = true,
+	Photon = "PHOTON_INHERIT"
+}
+list.Set( "Vehicles", "audi_r8_polizei_51249618", V )
+
+if EMVU then EMVU:OverwriteIndex( VehicleName, EMV ) end
